@@ -54,10 +54,20 @@ public class Calculatrice : MonoBehaviour
                 break;
 
             case "x":
-                Resultat *= 10;
+                Resultat *= OperandeInput;
                 break;
         }
 
+        ShowOperande = false;
+        Display(Resultat);
+    }
+
+    public void AC()
+    {
+        Resultat = 0;
+        ShowOperande = false;
+        Operation = "";
+        OperandeInput = 0;
         Display(Resultat);
     }
 }
