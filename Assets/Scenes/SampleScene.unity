@@ -1625,6 +1625,7 @@ MonoBehaviour:
   OperandeInput: 0
   ShowOperande: 0
   Operation: 
+  Coma: 0
   Text: {fileID: 1994597680}
 --- !u!1 &532983447
 GameObject:
@@ -4613,7 +4614,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1949452607}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 519420033}
+        m_TargetAssemblyTypeName: Calculatrice, Assembly-CSharp
+        m_MethodName: AddComa
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1949452607
 MonoBehaviour:
   m_ObjectHideFlags: 0

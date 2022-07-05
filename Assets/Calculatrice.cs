@@ -6,24 +6,47 @@ using UnityEngine.UI;
 
 public class Calculatrice : MonoBehaviour
 {
-    public int Resultat = 0;
-    public int OperandeInput = 0;
+    public double Resultat = 0;
+    public double OperandeInput = 0;
     public bool ShowOperande;
     public string Operation;
+    public bool Coma = false;
+    public double Div = 1;
     public TextMeshProUGUI Text;
 
     public void AddChiffre(int chiffre)
     {
+        double div = 1;
+
         if (ShowOperande)
         {
-            OperandeInput *= 10;
-            OperandeInput += chiffre;
+            if (Coma)
+            {
+                Div *= 0.1;
+                div = Div;
+            }
+            else
+            {
+                OperandeInput *= 10;
+            }
+
+            
+            OperandeInput += chiffre * div;
             Display(OperandeInput);
         }
         else
         {
-            Resultat *= 10;
-            Resultat += chiffre;
+            if (Coma)
+            {
+                Div *= 0.1;
+                div = Div;
+            }
+            else
+            {
+                Resultat *= 10;
+            }
+            
+            Resultat += chiffre * div;
             Display(Resultat);
         }
     }
@@ -33,10 +56,12 @@ public class Calculatrice : MonoBehaviour
         Operation = input;
         ShowOperande = true;
         OperandeInput = 0;
+        Div = 1;
+        Coma = false;
         Display(OperandeInput);
     }
 
-    public void Display(int nbr)
+    public void Display(double nbr)
     {
         Text.text = nbr.ToString();
     }
@@ -68,6 +93,13 @@ public class Calculatrice : MonoBehaviour
         ShowOperande = false;
         Operation = "";
         OperandeInput = 0;
+        Div = 1;
+        Coma = false;
         Display(Resultat);
+    }
+
+    public void AddComa()
+    {
+        Coma = true;
     }
 }
